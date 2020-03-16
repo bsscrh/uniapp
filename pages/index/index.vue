@@ -12,6 +12,8 @@
 </template>
 
 <script>
+	import common from "../../common/common.js";
+	
 	export default {
 		data() {
 			return {
@@ -19,7 +21,13 @@
 			}
 		},
 		onLoad() {
-
+			var serverUrl = common.serverUrl;
+			var serverUrl2 = common.serverUrl2;
+			// 在main.js里挂载
+			var serverUrl3 = this.serverUrl3;
+			console.log(serverUrl)
+			console.log(serverUrl2)
+			console.log(serverUrl3)
 		},
 		methods: {
 

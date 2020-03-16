@@ -133,28 +133,36 @@ __webpack_require__.r(__webpack_exports__);
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0; //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-var _default =
-{
-  data: function data() {
-    return {};
+Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;
 
 
-  },
-  onLoad: function onLoad() {
 
+
+
+
+
+
+
+
+
+
+
+var _common = _interopRequireDefault(__webpack_require__(/*! ../../common/common.js */ 37));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };} //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+var _default = { data: function data() {return {};}, onLoad: function onLoad() {var serverUrl = _common.default.serverUrl;var serverUrl2 = _common.default.serverUrl2; // 在main.js里挂载
+    var serverUrl3 = this.serverUrl3;console.log(serverUrl);console.log(serverUrl2);
+    console.log(serverUrl3);
   },
   methods: {} };exports.default = _default;
 

@@ -3,7 +3,10 @@
 		{
 			"path": "pages/index/index",
 			"style": {
-				
+				// 如果 h5 节点没有配置，默认会使用 app-plus 下的配置
+				"app-plus": {
+								"titleNView": false //禁用原生导航栏
+							}
 			}
 		}
 	    ,{
