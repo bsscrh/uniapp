@@ -1,5 +1,6 @@
 <template>
 	<view class="page">
+		<!-- 轮播图start -->
 		<swiper :indicator-dots="true" :autoplay="true" class="carousel">
 			<swiper-item>
 				<image src="../../static/carousel/batmanvssuperman.png" class="carousel"></image>
@@ -8,6 +9,18 @@
 				<image src="../../static/carousel/spiderman.png" class="carousel"></image>
 			</swiper-item>
 		</swiper>
+		<!-- 轮播图end -->
+		
+		<!-- 热门超英start -->
+		<view class="page-block">
+			<view>
+				<image src="" mode=""></image>
+				<view>
+					
+				</view>
+			</view>
+		</view>
+		<!-- 热门超英end -->
 	</view>
 </template>
 
