@@ -29,28 +29,21 @@
 						{{superhero.name}}
 					</view>
 
-					<view class="movie-score-wapper">
-						<image src="../../static/icos/star-yellow.png" class="star-ico"></image>
-						<image src="../../static/icos/star-yellow.png" class="star-ico"></image>
-						<image src="../../static/icos/star-yellow.png" class="star-ico"></image>
-						<image src="../../static/icos/star-yellow.png" class="star-ico"></image>
-						<image src="../../static/icos/star-gray.png" class="star-ico"></image>
-						<view class="movie-score">
-							9.1
-						</view>
-					</view>
+					<trailerStars :innerScore="superhero.score" showNum="1"></trailerStars>
 				</view>
 			</view>
 		</scroll-view>
 		<!-- 热门超英end -->
 		<!-- <hello myval="hello,这是组件传值测试~~"></hello> -->
 		<!-- <hello :myval="hello"></hello> -->
+		
 	</view>
 </template>
 
 <script>
 	import common from "../../common/common.js";
 	import hello from "../../components/hello.vue"
+	import trailerStars from "../../components/trailerStars.vue"
 
 	export default {
 		data() {
@@ -59,13 +52,15 @@
 						id: 1,
 						cover: "../../static/poster/civilwar.jpg",
 						name: "civilwar",
-						trailer: "http://122.152.205.72:88/superhero/MARVEL/IronMan3/trailer.mp4"
+						trailer: "http://122.152.205.72:88/superhero/MARVEL/IronMan3/trailer.mp4",
+						score:9.1
 					},
 					{
 						id: 2,
 						cover: "../../static/poster/justice.png",
 						name: "justice",
-						trailer: "http://122.152.205.72:88/superhero/MARVEL/IronMan3/trailer.mp4"
+						trailer: "http://122.152.205.72:88/superhero/MARVEL/IronMan3/trailer.mp4",
+						score:7.9
 					}
 				],
 				hello:"hello,这是组件传值测试~"
@@ -84,7 +79,8 @@
 
 		},
 		components: {
-			hello
+			hello,
+			trailerStars
 		}
 	}
 </script>
