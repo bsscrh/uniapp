@@ -1,6 +1,9 @@
 <template name="hello">  <!-- 定义组件的名称为hello -->
 	<view>
 		{{msg}}
+		<view>
+			<input type="text" :value="myval" class="txt"/>
+		</view>
 	</view>
 </template>
 
@@ -16,10 +19,18 @@
 		},
 		methods: {
 			
+		},
+		// 接收父级组件传值
+		props: {
+			myval: {
+				type: String
+			}
 		}
 	}
 </script>
 
 <style>
-
+.txt {
+		color: green;  
+	}
 </style>

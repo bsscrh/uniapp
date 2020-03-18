@@ -43,7 +43,8 @@
 			</view>
 		</scroll-view>
 		<!-- 热门超英end -->
-		<hello></hello>
+		<!-- <hello myval="hello,这是组件传值测试~~"></hello> -->
+		<!-- <hello :myval="hello"></hello> -->
 	</view>
 </template>
 
@@ -66,7 +67,8 @@
 						name: "justice",
 						trailer: "http://122.152.205.72:88/superhero/MARVEL/IronMan3/trailer.mp4"
 					}
-				]
+				],
+				hello:"hello,这是组件传值测试~"
 			}
 		},
 		onLoad() {
