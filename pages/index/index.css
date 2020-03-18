@@ -48,7 +48,7 @@
 	margin-top: 10upx;
 	font-size: 14px;
 	font-weight: bold;
-	/* name超出则省略 */
+	/* name超出则省略用省略号代替ellipsis */
 	white-space: nowrap;
 	overflow: hidden;
 	text-overflow: ellipsis;
