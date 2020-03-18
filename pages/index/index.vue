@@ -22,69 +22,13 @@
 		</view>
 
 		<scroll-view scroll-x="true" class="page-block hot">
-			<view class="single-poster">
+			<view class="single-poster" v-for="superhero in hotSuperheroList" :key="superhero.id">
 				<view class="poster-wapper">
-					<image src="../../static/poster/civilwar.jpg" class="poster"></image>
+					<image :src="superhero.cover" class="poster"></image>
 					<view class="movie-name">
-						蝙蝠侠蝙蝠侠蝙蝠侠蝙蝠侠
+						{{superhero.name}}
 					</view>
-					<view class="movie-score-wapper">
-						<image src="../../static/icos/star-yellow.png" class="star-ico"></image>
-						<image src="../../static/icos/star-yellow.png" class="star-ico"></image>
-						<image src="../../static/icos/star-yellow.png" class="star-ico"></image>
-						<image src="../../static/icos/star-yellow.png" class="star-ico"></image>
-						<image src="../../static/icos/star-gray.png" class="star-ico"></image>
-						<view class="movie-score">
-							9.1
-						</view>
-					</view>
-				</view>
-			</view>
-			
-			<view class="single-poster">
-				<view class="poster-wapper">
-					<image src="../../static/poster/civilwar.jpg" class="poster"></image>
-					<view class="movie-name">
-						蝙蝠侠蝙蝠侠蝙蝠侠蝙蝠侠
-					</view>
-					<view class="movie-score-wapper">
-						<image src="../../static/icos/star-yellow.png" class="star-ico"></image>
-						<image src="../../static/icos/star-yellow.png" class="star-ico"></image>
-						<image src="../../static/icos/star-yellow.png" class="star-ico"></image>
-						<image src="../../static/icos/star-yellow.png" class="star-ico"></image>
-						<image src="../../static/icos/star-gray.png" class="star-ico"></image>
-						<view class="movie-score">
-							9.1
-						</view>
-					</view>
-				</view>
-			</view>
-			
-			<view class="single-poster">
-				<view class="poster-wapper">
-					<image src="../../static/poster/civilwar.jpg" class="poster"></image>
-					<view class="movie-name">
-						蝙蝠侠蝙蝠侠蝙蝠侠蝙蝠侠
-					</view>
-					<view class="movie-score-wapper">
-						<image src="../../static/icos/star-yellow.png" class="star-ico"></image>
-						<image src="../../static/icos/star-yellow.png" class="star-ico"></image>
-						<image src="../../static/icos/star-yellow.png" class="star-ico"></image>
-						<image src="../../static/icos/star-yellow.png" class="star-ico"></image>
-						<image src="../../static/icos/star-gray.png" class="star-ico"></image>
-						<view class="movie-score">
-							9.1
-						</view>
-					</view>
-				</view>
-			</view>
-			
-			<view class="single-poster">
-				<view class="poster-wapper">
-					<image src="../../static/poster/civilwar.jpg" class="poster"></image>
-					<view class="movie-name">
-						蝙蝠侠蝙蝠侠蝙蝠侠蝙蝠侠
-					</view>
+					
 					<view class="movie-score-wapper">
 						<image src="../../static/icos/star-yellow.png" class="star-ico"></image>
 						<image src="../../static/icos/star-yellow.png" class="star-ico"></image>
@@ -108,7 +52,20 @@
 	export default {
 		data() {
 			return {
-
+				hotSuperheroList: [
+					{
+						id:1,
+						cover:"../../static/poster/civilwar.jpg",
+						name:"civilwar",
+						trailer:"http://122.152.205.72:88/superhero/MARVEL/IronMan3/trailer.mp4"
+					},
+					{
+						id:2,
+						cover:"../../static/poster/justice.png",
+						name:"justice",
+						trailer:"http://122.152.205.72:88/superhero/MARVEL/IronMan3/trailer.mp4"
+					}
+				]
 			}
 		},
 		onLoad() {
