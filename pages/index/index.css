@@ -54,7 +54,7 @@
 	text-overflow: ellipsis;
 }
 
-/* .movie-score-wapper {
+.movie-score-wapper {
 	display: flex;
 	flex-direction: row;
 }
@@ -67,7 +67,7 @@
 	font-size: 12upx;
 	color: grey;
 	margin-left: 8upx;
-} */
+}
 /* 热门超英 end */
 
 /* 热门预告 start */
