@@ -28,7 +28,7 @@
 					<view class="movie-name">
 						{{superhero.name}}
 					</view>
-					
+
 					<view class="movie-score-wapper">
 						<image src="../../static/icos/star-yellow.png" class="star-ico"></image>
 						<image src="../../static/icos/star-yellow.png" class="star-ico"></image>
@@ -43,27 +43,28 @@
 			</view>
 		</scroll-view>
 		<!-- 热门超英end -->
+		<hello></hello>
 	</view>
 </template>
 
 <script>
 	import common from "../../common/common.js";
+	import hello from "../../components/hello.vue"
 
 	export default {
 		data() {
 			return {
-				hotSuperheroList: [
-					{
-						id:1,
-						cover:"../../static/poster/civilwar.jpg",
-						name:"civilwar",
-						trailer:"http://122.152.205.72:88/superhero/MARVEL/IronMan3/trailer.mp4"
+				hotSuperheroList: [{
+						id: 1,
+						cover: "../../static/poster/civilwar.jpg",
+						name: "civilwar",
+						trailer: "http://122.152.205.72:88/superhero/MARVEL/IronMan3/trailer.mp4"
 					},
 					{
-						id:2,
-						cover:"../../static/poster/justice.png",
-						name:"justice",
-						trailer:"http://122.152.205.72:88/superhero/MARVEL/IronMan3/trailer.mp4"
+						id: 2,
+						cover: "../../static/poster/justice.png",
+						name: "justice",
+						trailer: "http://122.152.205.72:88/superhero/MARVEL/IronMan3/trailer.mp4"
 					}
 				]
 			}
@@ -79,6 +80,9 @@
 		},
 		methods: {
 
+		},
+		components: {
+			hello
 		}
 	}
 </script>

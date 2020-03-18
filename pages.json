@@ -17,6 +17,10 @@
             "path" : "pages/me/me",
             "style" : {}
         }
+        ,{
+            "path" : "components/hello",
+            "style" : {}
+        }
     ],
 	"globalStyle": {
 		"navigationBarTextStyle": "black",
