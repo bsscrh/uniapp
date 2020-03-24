@@ -34,9 +34,71 @@
 			</view>
 		</scroll-view>
 		<!-- 热门超英end -->
+
+		<!-- 热门预告 start -->
+		<view class="page-block super-hot">
+			<view class="hot-title-wapper">
+				<image src="../../static/icos/interest.png" class="hot-ico"></image>
+				<view class="hot-title">
+					热门预告
+				</view>
+			</view>
+		</view>
+
+		<view class="hot-movies page-block">
+
+			<video :id="trailer.id" :data-playingindex="trailer.id" @play="meIsPlaying" v-for="trailer in hotTrailerList" :src="trailer.trailer"
+			 :poster="trailer.poster" class="hot-movie-single" controls :key="trailer.id"></video>
+
+		</view>
+		<!-- 热门预告 end -->
+
+		<!-- 猜你喜欢 start -->
+		<view class="page-block super-hot">
+			<view class="hot-title-wapper">
+				<image src="../../static/icos/guess-u-like.png" class="hot-ico"></image>
+				<view class="hot-title">
+					猜你喜欢
+				</view>
+			</view>
+		</view>
+
+		<view class="page-block guess-u-like">
+
+			<view class="single-like-movie" v-for="(guess,gIndex) in guessULikeList" :key="guess.id">
+
+				<navigator open-type="navigate" :url="'../movie/movie?trailerId=' + guess.id">
+					<image :src="guess.cover" class="like-movie"></image>
+				</navigator>
+
+				<view class="movie-desc">
+					<view class="movie-title">
+						{{guess.name}}
+					</view>
+					<trailerStars :innerScore="9.1" showNum="0"></trailerStars>
+					<view class="movie-info">
+						{{guess.basicInfo}}
+					</view>
+					<view class="movie-info">
+						{{guess.releaseDate}}
+					</view>
+				</view>
+
+				<view class="movie-oper" :data-gIndex="gIndex" @click="praiseMe">
+					<image src="../../static/icos/praise.png" class="praise-ico"></image>
+					<view class="praise-me">
+						点赞
+					</view>
+					<view :animation="animationDataArr[gIndex]" class="praise-me animation-opacity">
+						+1
+					</view>
+				</view>
+			</view>
+		</view>
+		<!-- 猜你喜欢 end -->
 		<!-- <hello myval="hello,这是组件传值测试~~"></hello> -->
 		<!-- <hello :myval="hello"></hello> -->
-		
+
 	</view>
 </template>
 
@@ -48,22 +110,53 @@
 	export default {
 		data() {
 			return {
+				//热门
 				hotSuperheroList: [{
 						id: 1,
 						cover: "../../static/poster/civilwar.jpg",
 						name: "civilwar",
 						trailer: "http://122.152.205.72:88/superhero/MARVEL/IronMan3/trailer.mp4",
-						score:9.1
+						score: 9.1
 					},
 					{
 						id: 2,
 						cover: "../../static/poster/justice.png",
 						name: "justice",
-						trailer: "http://122.152.205.72:88/superhero/MARVEL/IronMan3/trailer.mp4",
-						score:7.9
+						trailer: "http://122.152.205.72:88/superhero/MARVEL/Thor3/trailer.mp4",
+						score: 7.9
 					}
 				],
-				hello:"hello,这是组件传值测试~"
+				//预告片
+				hotTrailerList: [{
+					id: 1,
+					trailer: "http://122.152.205.72:88/superhero/MARVEL/Thor3/trailer.mp4",
+					poster: "http://122.152.205.72:88/superhero/MARVEL/Thor3/cover.jpg"
+				}, {
+					id: 2,
+					trailer: "http://122.152.205.72:88/superhero/MARVEL/IronMan3/trailer.mp4",
+					poster: "http://122.152.205.72:88/superhero/MARVEL/IronMan3/cover.jpg"
+				}],
+				guessULikeList: [{
+					id: 1,
+					cover: "../../static/poster/civilwar.jpg",
+					name: "蝙蝠侠大战超人",
+					basicInfo: "2018 / 美国 / 科幻 动作",
+					releaseDate: "本·阿弗莱克 / 亨利·卡维尔 / 艾米·亚当斯 / 盖尔·加朵"
+				},{
+					id: 2,
+					cover: "../../static/poster/justice.png",
+					name: "",
+					basicInfo: "",
+					releaseDate: ""
+				},{
+					id: 3,
+					cover: "../../static/poster/justice.png",
+					name: "",
+					basicInfo: "",
+					releaseDate: ""
+				}
+				],
+				hello: "hello,这是组件传值测试~"
 			}
 		},
 		onLoad() {
