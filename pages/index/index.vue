@@ -22,7 +22,7 @@
 		</view>
 
 		<scroll-view scroll-x="true" class="page-block hot">
-			<view class="single-poster" v-for="superhero in hotSuperheroList" :key="superhero.id">
+			<view class="single-poster" v-for="superhero in hotSuperheroList" :key="superhero.id+10">
 				<view class="poster-wapper">
 					<image :src="superhero.cover" class="poster"></image>
 					<view class="movie-name">
@@ -47,14 +47,13 @@
 
 		<view class="hot-movies page-block">
 
-			<video :id="trailer.id" :data-playingindex="trailer.id" @play="meIsPlaying" v-for="trailer in hotTrailerList" :src="trailer.trailer"
-			 :poster="trailer.poster" class="hot-movie-single" controls :key="trailer.id"></video>
+			<video v-for="(trailer,index) in hotTrailerList" :id="'hero'+trailer.id" :data-playingindex="trailer.id" @play="meIsPlaying"  :src="trailer.trailer"
+			 :poster="trailer.poster" class="hot-movie-single" controls :key="index+15"></video>
 
 		</view>
 		<!-- 热门预告 end -->
-
-		<!-- 猜你喜欢 start -->
-		<view class="page-block super-hot">
+<!-- 猜你喜欢 start -->
+		<!-- <view class="page-block super-hot">
 			<view class="hot-title-wapper">
 				<image src="../../static/icos/guess-u-like.png" class="hot-ico"></image>
 				<view class="hot-title">
@@ -62,15 +61,15 @@
 				</view>
 			</view>
 		</view>
-
+		
 		<view class="page-block guess-u-like">
-
+		
 			<view class="single-like-movie" v-for="(guess,gIndex) in guessULikeList" :key="guess.id">
-
+		
 				<navigator open-type="navigate" :url="'../movie/movie?trailerId=' + guess.id">
 					<image :src="guess.cover" class="like-movie"></image>
 				</navigator>
-
+		
 				<view class="movie-desc">
 					<view class="movie-title">
 						{{guess.name}}
@@ -83,7 +82,7 @@
 						{{guess.releaseDate}}
 					</view>
 				</view>
-
+		
 				<view class="movie-oper" :data-gIndex="gIndex" @click="praiseMe">
 					<image src="../../static/icos/praise.png" class="praise-ico"></image>
 					<view class="praise-me">
@@ -94,8 +93,9 @@
 					</view>
 				</view>
 			</view>
-		</view>
+		</view> -->
 		<!-- 猜你喜欢 end -->
+		
 		<!-- <hello myval="hello,这是组件传值测试~~"></hello> -->
 		<!-- <hello :myval="hello"></hello> -->
 
