@@ -22,7 +22,7 @@
 		</view>
 
 		<scroll-view scroll-x="true" class="page-block hot">
-			<view class="single-poster" v-for="superhero in hotSuperheroList" :key="superhero.id+10">
+			<view class="single-poster" v-for="superhero in hotSuperheroList" :key="'superhero'+superhero.id+10">
 				<view class="poster-wapper">
 					<image :src="superhero.cover" class="poster"></image>
 					<view class="movie-name">
@@ -47,13 +47,13 @@
 
 		<view class="hot-movies page-block">
 
-			<video v-for="(trailer,index) in hotTrailerList" :id="'hero'+trailer.id" :data-playingindex="trailer.id" @play="meIsPlaying"  :src="trailer.trailer"
-			 :poster="trailer.poster" class="hot-movie-single" controls :key="index+15"></video>
+			<video v-for="(trailer,index) in hotTrailerList" :id="'hero'+trailer.id" :data-playingindex="trailer.id" @play="meIsPlaying"
+			 :src="trailer.trailer" :poster="trailer.poster" class="hot-movie-single" controls :key="index+15"></video>
 
 		</view>
 		<!-- 热门预告 end -->
-<!-- 猜你喜欢 start -->
-		<!-- <view class="page-block super-hot">
+		<!-- 猜你喜欢 start -->
+		<view class="page-block super-hot">
 			<view class="hot-title-wapper">
 				<image src="../../static/icos/guess-u-like.png" class="hot-ico"></image>
 				<view class="hot-title">
@@ -61,15 +61,15 @@
 				</view>
 			</view>
 		</view>
-		
+
 		<view class="page-block guess-u-like">
-		
-			<view class="single-like-movie" v-for="(guess,gIndex) in guessULikeList" :key="guess.id">
-		
+
+			<view class="single-like-movie" v-for="(guess,gIndex) in guessULikeList" :key="'guess'+guess.id">
+
 				<navigator open-type="navigate" :url="'../movie/movie?trailerId=' + guess.id">
 					<image :src="guess.cover" class="like-movie"></image>
 				</navigator>
-		
+
 				<view class="movie-desc">
 					<view class="movie-title">
 						{{guess.name}}
@@ -82,20 +82,21 @@
 						{{guess.releaseDate}}
 					</view>
 				</view>
-		
+
 				<view class="movie-oper" :data-gIndex="gIndex" @click="praiseMe">
 					<image src="../../static/icos/praise.png" class="praise-ico"></image>
 					<view class="praise-me">
 						点赞
 					</view>
+
 					<view :animation="animationDataArr[gIndex]" class="praise-me animation-opacity">
 						+1
 					</view>
 				</view>
 			</view>
-		</view> -->
+		</view>
 		<!-- 猜你喜欢 end -->
-		
+
 		<!-- <hello myval="hello,这是组件传值测试~~"></hello> -->
 		<!-- <hello :myval="hello"></hello> -->
 
@@ -142,22 +143,28 @@
 					name: "蝙蝠侠大战超人",
 					basicInfo: "2018 / 美国 / 科幻 动作",
 					releaseDate: "本·阿弗莱克 / 亨利·卡维尔 / 艾米·亚当斯 / 盖尔·加朵"
-				},{
+				}, {
 					id: 2,
 					cover: "../../static/poster/justice.png",
-					name: "",
-					basicInfo: "",
-					releaseDate: ""
-				},{
+					name: "蝙蝠侠大战超人",
+					basicInfo: "2018 / 美国 / 科幻 动作",
+					releaseDate: "本·阿弗莱克 / 亨利·卡维尔 / 艾米·亚当斯 / 盖尔·加朵"
+				}, {
 					id: 3,
 					cover: "../../static/poster/justice.png",
-					name: "",
-					basicInfo: "",
-					releaseDate: ""
-				}
-				],
+					name: "蝙蝠侠大战超人",
+					basicInfo: "2018 / 美国 / 科幻 动作",
+					releaseDate: "本·阿弗莱克 / 亨利·卡维尔 / 艾米·亚当斯 / 盖尔·加朵"
+				}],
+				animationData: {},
+				animationDataArr: [{}, {}, {}, {}, {}],
 				hello: "hello,这是组件传值测试~"
 			}
+		},
+		onUnload() {
+			// 页面卸载的时候，清除动画数据
+			this.animationData = {};
+			this.animationDataArr = [{}, {}, {}, {}, {}];
 		},
 		onLoad() {
 			var serverUrl = common.serverUrl;
@@ -167,9 +174,31 @@
 			console.log(serverUrl)
 			console.log(serverUrl2)
 			console.log(serverUrl3)
+
+			// 在页面创建的时候，创建一个临时动画对象
+			this.animation = uni.createAnimation();
 		},
 		methods: {
+			praiseMe(e) {
+				var gIndex = e.currentTarget.dataset.gindex;
+				console.log(gIndex);
+				this.animation.translateY(-60).opacity(1).step({
+					duration: 400
+				});
 
+				// 导出动画数据到view组件，实现组件的动画效果
+				// this.animationData = this.animation.export();
+				this.animationData = this.animation;
+				this.animationDataArr[gIndex] = this.animationData.export();
+
+				setTimeout(function() {
+					this.animation.translateY(0).opacity(0).step({
+						duration: 0
+					});
+					this.animationData = this.animation;
+					this.animationDataArr[gIndex] = this.animationData.export();
+				}.bind(this), 500)
+			}
 		},
 		components: {
 			hello,

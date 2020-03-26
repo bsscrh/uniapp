@@ -1,3 +1,6 @@
 {
-  "usingComponents": {}
+  "usingComponents": {
+    "hello": "/components/hello",
+    "trailer-stars": "/components/trailerStars"
+  }
 }
