@@ -137,25 +137,7 @@
 					trailer: "http://122.152.205.72:88/superhero/MARVEL/IronMan3/trailer.mp4",
 					poster: "http://122.152.205.72:88/superhero/MARVEL/IronMan3/cover.jpg"
 				}],
-				guessULikeList: [{
-					id: 1,
-					cover: "../../static/poster/civilwar.jpg",
-					name: "蝙蝠侠大战超人",
-					basicInfo: "2018 / 美国 / 科幻 动作",
-					releaseDate: "本·阿弗莱克 / 亨利·卡维尔 / 艾米·亚当斯 / 盖尔·加朵"
-				}, {
-					id: 2,
-					cover: "../../static/poster/justice.png",
-					name: "蝙蝠侠大战超人",
-					basicInfo: "2018 / 美国 / 科幻 动作",
-					releaseDate: "本·阿弗莱克 / 亨利·卡维尔 / 艾米·亚当斯 / 盖尔·加朵"
-				}, {
-					id: 3,
-					cover: "../../static/poster/justice.png",
-					name: "蝙蝠侠大战超人",
-					basicInfo: "2018 / 美国 / 科幻 动作",
-					releaseDate: "本·阿弗莱克 / 亨利·卡维尔 / 艾米·亚当斯 / 盖尔·加朵"
-				}],
+				guessULikeList: [],
 				animationData: {},
 				animationDataArr: [{}, {}, {}, {}, {}],
 				hello: "hello,这是组件传值测试~"
@@ -177,8 +159,40 @@
 
 			// 在页面创建的时候，创建一个临时动画对象
 			this.animation = uni.createAnimation();
+			this.getGuessULikeList();
+			
+			
 		},
 		methods: {
+			getGuessULikeList(){
+				var guessULikeList = [{
+						id: 1,
+						cover: "../../static/poster/civilwar.jpg",
+						name: "蝙蝠侠大战超人1",
+						basicInfo: "2018 / 美国 / 科幻 动作",
+						releaseDate: "本·阿弗莱克 / 亨利·卡维尔 / 艾米·亚当斯 / 盖尔·加朵"
+					}, {
+						id: 2,
+						cover: "../../static/poster/justice.png",
+						name: "蝙蝠侠大战超人2",
+						basicInfo: "2018 / 美国 / 科幻 动作",
+						releaseDate: "本·阿弗莱克 / 亨利·卡维尔 / 艾米·亚当斯 / 盖尔·加朵"
+					}, {
+						id: 3,
+						cover: "../../static/poster/justice.png",
+						name: "蝙蝠侠大战超人3",
+						basicInfo: "2018 / 美国 / 科幻 动作",
+						releaseDate: "本·阿弗莱克 / 亨利·卡维尔 / 艾米·亚当斯 / 盖尔·加朵"
+					}];
+				    var result = [];
+				    var ranNum = 2;
+				    for (var i = 0; i < ranNum; i++) {
+				        var ran = Math.floor(Math.random() * guessULikeList.length);
+				        //arr.splice(ran, 1)[0]返回被删除的元素，比如ran=8，打印arr.splice(ran, 1)=[80],打印arr.splice(ran, 1)[0]=80,打印arr=[0, 10, 20, 30, 40, 50, 60, 70, 90]
+				        result.push(guessULikeList.splice(ran, 1)[0]);
+				    };
+					this.guessULikeList = result;
+			},
 			praiseMe(e) {
 				var gIndex = e.currentTarget.dataset.gindex;
 				console.log(gIndex);
@@ -188,6 +202,7 @@
 
 				// 导出动画数据到view组件，实现组件的动画效果
 				// this.animationData = this.animation.export();
+				//用animationData来承载一下动画，不然可能会报错，原因不是很清楚
 				this.animationData = this.animation;
 				this.animationDataArr[gIndex] = this.animationData.export();
 
