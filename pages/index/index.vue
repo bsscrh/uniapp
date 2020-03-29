@@ -156,9 +156,12 @@
 			console.log(serverUrl)
 			console.log(serverUrl2)
 			console.log(serverUrl3)
-
+			
+			// #ifdef APP-PLUS || MP-WEIXIN
 			// 在页面创建的时候，创建一个临时动画对象
 			this.animation = uni.createAnimation();
+			// #endif
+			
 			this.getGuessULikeList();
 			
 			
@@ -194,6 +197,7 @@
 					this.guessULikeList = result;
 			},
 			praiseMe(e) {
+				// #ifdef APP-PLUS || MP-WEIXIN
 				var gIndex = e.currentTarget.dataset.gindex;
 				console.log(gIndex);
 				this.animation.translateY(-60).opacity(1).step({
@@ -213,6 +217,7 @@
 					this.animationData = this.animation;
 					this.animationDataArr[gIndex] = this.animationData.export();
 				}.bind(this), 500)
+				// #endif
 			}
 		},
 		components: {
