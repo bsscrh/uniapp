@@ -5,23 +5,21 @@
 			"style": {
 				// 如果 h5 节点没有配置，默认会使用 app-plus 下的配置
 				"app-plus": {
-								"titleNView": false //禁用原生导航栏
-							}
+					"titleNView": false //禁用原生导航栏
+				},
+				"enablePullDownRefresh": true
 			}
+		}, {
+			"path": "pages/search/search",
+			"style": {}
+		}, {
+			"path": "pages/me/me",
+			"style": {}
+		}, {
+			"path": "components/hello",
+			"style": {}
 		}
-	    ,{
-            "path" : "pages/search/search",
-            "style" : {}
-        }
-        ,{
-            "path" : "pages/me/me",
-            "style" : {}
-        }
-        ,{
-            "path" : "components/hello",
-            "style" : {}
-        }
-    ],
+	],
 	"globalStyle": {
 		"navigationBarTextStyle": "black",
 		"navigationBarTitleText": "超英预告",
@@ -33,25 +31,24 @@
 		"selectedColor": "#515151",
 		"borderStyle": "black",
 		"backgroundColor": "#ffffff",
-		"list" : [
-		            {
-		                "pagePath" : "pages/index/index",
-		                "text" : "首页",
-		                "iconPath" : "static/tabBarIco/index.png",
-		                "selectedIconPath" : "static/tabBarIco/index_sel.png"
-		            },
-		            {
-		                "pagePath" : "pages/search/search",
-		                "text" : "搜索",
-		                "iconPath" : "static/tabBarIco/search.png",
-		                "selectedIconPath" : "static/tabBarIco/search_sel.png"
-		            },
-		            {
-		                "pagePath" : "pages/me/me",
-		                "text" : "我的",
-		                "iconPath" : "static/tabBarIco/me.png",
-		                "selectedIconPath" : "static/tabBarIco/me_sel.png"
-		            }
-		        ]
+		"list": [{
+				"pagePath": "pages/index/index",
+				"text": "首页",
+				"iconPath": "static/tabBarIco/index.png",
+				"selectedIconPath": "static/tabBarIco/index_sel.png"
+			},
+			{
+				"pagePath": "pages/search/search",
+				"text": "搜索",
+				"iconPath": "static/tabBarIco/search.png",
+				"selectedIconPath": "static/tabBarIco/search_sel.png"
+			},
+			{
+				"pagePath": "pages/me/me",
+				"text": "我的",
+				"iconPath": "static/tabBarIco/me.png",
+				"selectedIconPath": "static/tabBarIco/me_sel.png"
+			}
+		]
 	}
 }
