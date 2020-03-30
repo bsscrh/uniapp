@@ -167,8 +167,16 @@
 
 		},
 		onPullDownRefresh() {
+			uni.showLoading({
+				mask: true
+			});
+			// uni.showNavigationBarLoading();
 			this.getGuessULikeList();
-			uni.stopPullDownRefresh();
+			setTimeout(function(){
+				uni.hideLoading();
+				uni.stopPullDownRefresh();
+			},1000);
+			
 		},
 		methods: {
 			getGuessULikeList() {

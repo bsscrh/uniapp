@@ -1,0 +1,2 @@
+setCssToHead([".",[1],"txt { color: green; }\n",],undefined,{path:"./components/hello.wxss"})();
+document.dispatchEvent(new CustomEvent("generateFuncReady", { detail: { generateFunc: $gwx('./components/hello.wxml') } }));
