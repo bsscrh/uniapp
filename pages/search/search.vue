@@ -1,7 +1,17 @@
 <template>
 	<view class="page">
 		<view class="search-block">
+			<view class="search-ico-wapper">
+				<image src="../../static/icos/search.png" class="search-ico"></image>
+			</view>
 			
+			<input type="text" placeholder="搜索预告" maxlength="10" class="search-text" focus="">
+		</view>
+		
+		<view class="movie-list page-block">
+			<view class="movie-wapper" v-for="trailer in trailerList" :key="trailer.id">
+				<image :src="trailer.cover" class="poster"></image>
+			</view>
 		</view>
 	</view>
 </template>
@@ -10,7 +20,10 @@
 	export default {
 		data() {
 			return {
-				
+				trailerList:[{
+					id:1,
+					cover:"http://122.152.205.72:88/superhero/MARVEL/CaptainMarvel/cover.jpg"
+				}]
 			}
 		},
 		methods: {
