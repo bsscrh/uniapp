@@ -168,6 +168,7 @@
 		},
 		onPullDownRefresh() {
 			uni.showLoading({
+				// 是否显示透明蒙层，防止触摸穿透
 				mask: true
 			});
 			// uni.showNavigationBarLoading();

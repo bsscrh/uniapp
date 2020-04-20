@@ -20,10 +20,22 @@
 	export default {
 		data() {
 			return {
-				trailerList:[{
+				trailerList:[
+				{
 					id:1,
-					cover:"http://122.152.205.72:88/superhero/MARVEL/CaptainMarvel/cover.jpg"
-				}]
+					cover:"http://122.152.205.72:88/superhero/MARVEL/CaptainMarvel/cover.jpg",
+					poster:"http://122.152.205.72:88/superhero/MARVEL/CaptainMarvel/poster.jpg",
+					trailer:"http://122.152.205.72:88/superhero/MARVEL/CaptainMarvel/trailer.mp4",
+					name:"恶灵骑士"
+				},
+				{
+					id:2,
+					cover:"http://122.152.205.72:88/superhero/xman/TheNewMutants/cover.jpg",
+					poster:"http://122.152.205.72:88/superhero/xman/TheNewMutants/poster.jpg",
+					trailer:"http://122.152.205.72:88/superhero/xman/TheNewMutants/trailer.mp4",
+					name:"X战警：新变种人"
+				}
+				]
 			}
 		},
 		methods: {
