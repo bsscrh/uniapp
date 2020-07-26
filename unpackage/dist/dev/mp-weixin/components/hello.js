@@ -172,7 +172,7 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ 43:
+/***/ 45:
 /*!***********************************************************************!*\
   !*** D:/hbuildAndUniapp/uniapp/main.js?{"page":"components%2Fhello"} ***!
   \***********************************************************************/
@@ -189,5 +189,5 @@ createPage(_hello.default);
 
 /***/ })
 
-},[[43,"common/runtime","common/vendor"]]]);
+},[[45,"common/runtime","common/vendor"]]]);
 //# sourceMappingURL=../../.sourcemap/mp-weixin/components/hello.js.map

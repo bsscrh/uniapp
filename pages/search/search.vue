@@ -5,7 +5,7 @@
 				<image src="../../static/icos/search.png" class="search-ico"></image>
 			</view>
 			
-			<input type="text" placeholder="搜索预告" maxlength="10" class="search-text" focus="">
+			<input type="text" placeholder="搜索预告" maxlength="10" class="search-text" confirm-type="search" @confirm="search">
 		</view>
 		
 		<view class="movie-list page-block">
@@ -35,11 +35,19 @@
 					trailer:"http://122.152.205.72:88/superhero/xman/TheNewMutants/trailer.mp4",
 					name:"X战警：新变种人"
 				}
-				]
+				],
+				keywords: '', //搜索的关键字
+				page: 1, //当前第几页
+				totalPage: 1 //总页数
 			}
 		},
 		methods: {
-			
+			search(e) {
+				console.log(e);
+				var searchValue = e.datail.value;
+				this.keywords = searchValue;
+				this.trailerList = [];
+			}
 		}
 	}
 </script>
