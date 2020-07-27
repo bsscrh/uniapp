@@ -36,6 +36,7 @@
 					name:"X战警：新变种人"
 				}
 				],
+				trailerList2: [],//用来保存trailerList
 				keywords: '', //搜索的关键字
 				page: 1, //当前第几页
 				totalPage: 1 //总页数
@@ -43,11 +44,19 @@
 		},
 		methods: {
 			search(e) {
-				console.log(e);
-				var searchValue = e.datail.value;
+				var searchValue = e.detail.value;
 				this.keywords = searchValue;
+				this.trailerList2 = this.trailerList;
 				this.trailerList = [];
-			}
+				this.getSearchList(this.keywords,1,2);
+			},
+			getSearchList(keywords,page,pageSize) {
+				for(var i=0;i<this.trailerList2.length;i++) {
+					if(keywords == this.trailerList2[i].name){
+						this.trailerList[0] = this.trailerList2[i];
+					}
+				}
+			},
 		}
 	}
 </script>
