@@ -42,6 +42,9 @@
 				totalPage: 1 //总页数
 			}
 		},
+		onReachBottom() {
+			
+		},
 		methods: {
 			search(e) {
 				var searchValue = e.detail.value;
