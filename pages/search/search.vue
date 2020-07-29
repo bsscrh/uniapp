@@ -10,7 +10,7 @@
 		
 		<view class="movie-list page-block">
 			<view class="movie-wapper" v-for="trailer in trailerList" :key="trailer.id">
-				<image :src="trailer.cover" class="poster"></image>
+				<image :src="trailer.cover" class="poster" @click="showMovieDetail(trailer.id)"></image>
 			</view>
 		</view>
 	</view>
@@ -60,6 +60,11 @@
 					}
 				}
 			},
+			showMovieDetail(movieId) {
+				uni.navigateTo({
+					url: "../movie/movie?movieId=" + movieId
+				})
+			}
 		}
 	}
 </script>

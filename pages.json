@@ -21,7 +21,11 @@
 			"path": "components/hello",
 			"style": {}
 		}
-	],
+	    ,{
+            "path" : "pages/movie/movie",
+            "style" : {}
+        }
+    ],
 	"globalStyle": {
 		"navigationBarTextStyle": "black",
 		"navigationBarTitleText": "超英预告",
